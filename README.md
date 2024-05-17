@@ -1,6 +1,6 @@
 # Twitter-Comments-analyzer
 
-HSE SPb, spring 2024
+HSE SPb, DA&AI, 2th year, spring 2024
 
 Contirbutors: Daniel Vikulov, Nikolay Skripko 
 
