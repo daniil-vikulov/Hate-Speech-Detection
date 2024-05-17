@@ -1,6 +1,7 @@
 # Twitter-Comments-analyzer
 
 HSE SPb, spring 2024
+
 Contirbutors: Daniel Vikulov, Nikolay Skripko 
 
 ### Description
