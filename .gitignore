@@ -1,2 +1,5 @@
-.venv
-venv
+*
+!data/meta.txt
+!*.ipynb
+!requirements.txt
+!README.md
