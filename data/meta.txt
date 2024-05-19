@@ -1,0 +1,3 @@
+We use a dataset from here: https://www.kaggle.com/datasets/saurabhshahane/twitter-sentiment-dataset.
+
+You can download it and place it into the /data directory to train a model.
