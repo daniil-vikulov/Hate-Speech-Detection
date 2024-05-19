@@ -1,12 +1,9 @@
-# Twitter-Comments-analyzer
-
-HSE SPb, DA&AI, 2th year, spring 2024
+# Hate-Speech-Detection
 
 Contirbutors: Daniel Vikulov, Nikolay Skripko 
 
 ### Description
-Machine learning project for classifying user's comments and predicting the rate of agression
-
+Machine learning project for classifying user's tweets by 3 categories: neutral, negative and positive
 
 ### How to install
 
