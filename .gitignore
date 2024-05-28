@@ -3,3 +3,6 @@
 !*.ipynb
 !requirements.txt
 !README.md
+!*.py
+!setup.cfg
+!.github
