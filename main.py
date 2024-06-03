@@ -18,7 +18,12 @@ result_int_to_str = {-1: "negative", 0: "neutral", 1: "positive"}
 
 @app.post("/predict")
 async def classify_text(request: PredictionRequest):
-    result = result_int_to_str[int(interactor.predict(model_name=request.model_name, sentence=request.text)[0][0])]
+    prediction = interactor.predict(model_name=request.model_name, sentence=request.text)
+    if isinstance(prediction, list):  # some models return 2-dimentional array, but other return 1-dimentional array
+        prediction = prediction[0]
+    if isinstance(prediction, list):
+        prediction = prediction[0]
+    result = result_int_to_str[int(prediction)]
     return {"result": result}
 
 # Serve the static files

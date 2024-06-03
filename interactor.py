@@ -5,7 +5,9 @@ import pickle
 from catboost import CatBoostClassifier
 from nltk.stem import WordNetLemmatizer
 import numpy as np
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.linear_model import LogisticRegression
 
 
 class Interactor:
@@ -20,7 +22,6 @@ class Interactor:
         self.models = dict()
         self.load_models(models_path)
         self.lemmatizer = WordNetLemmatizer()
-        self.bow = CountVectorizer()
 
     def load_models(self, models_path: str):
         """
@@ -40,10 +41,21 @@ class Interactor:
             model_name = model_file[6:]  # Extracting the model name after "model_"
             match model_name:
                 case "catboost":
-                    model = CatBoostClassifier()
                     with open(f"models/model_{model_name}", 'rb') as file:
-                        model, vectorizer = pickle.load(file)
-                        self.models["catboost"] = [model, vectorizer]
+                        model: CatBoostClassifier = pickle.load(file)
+                        self.models["catboost"] = model
+                case "vectorizer":
+                    with open(f"models/model_{model_name}", 'rb') as file:
+                        bow: CountVectorizer = pickle.load(file)
+                        self.models["vectorizer"] = bow
+                case "randomforest":
+                    with open(f"models/model_{model_name}", 'rb') as file:
+                        rf: RandomForestClassifier = pickle.load(file)
+                        self.models["randomforest"] = rf
+                case "logisticregression":
+                    with open(f"models/model_{model_name}", 'rb') as file:
+                        lr: LogisticRegression = pickle.load(file)
+                        self.models["logisticregression"] = lr
                 case _:
                     print(f"Unknown model: {model_name}")
 
@@ -58,11 +70,11 @@ class Interactor:
         Returns:
             numpy.ndarray: The prediction result from the model.
         """
-        if model_name == "catboost":
-            model, vectorizer = self.models["catboost"]
-            sentence = self._lemmatize([sentence])
-            sentence_vectorized = vectorizer.transform(sentence)
-            return model.predict(sentence_vectorized)
+        vectorizer = self.models["vectorizer"]
+        model = self.models[model_name]
+        sentence = self._lemmatize([sentence])
+        sentence_vectorized = vectorizer.transform(sentence)
+        return model.predict(sentence_vectorized)
 
     def _lemmatize(self, texts):
         """
