@@ -1,18 +1,43 @@
-# Hate-Speech-Detection
+# Hate Speech Detection
 
-Contirbutors: Daniel Vikulov, Nikolay Skripko 
+[PRESENTATION](https://docs.google.com/presentation/d/1blVqvcNYWqYBkql37pqWD1aiWSIp0-zbDb1JLmgNTL0/edit#slide=id.p)
 
-### Description
-Machine learning project for classifying user's tweets by 3 categories: neutral, negative and positive
+Try it now: [http://188.119.67.145:8000/](http://188.119.67.145:8000/)
 
-### How to install
+## Table of Contents
 
-Will be added soon
+- [Description](#Description)
+- [Setup](#Setup)
+- [Dataset](#Dataset)
+- [Models](#Models)
+- [Metrics](#Metrics)
 
-### Dataset
+## Description
 
-Will be added soon
+Machine learning project for classifying the user's tweets into 3 categories: neutral, negative, and positive.
 
-### Used models and techs
+## Setup
 
-Will be added soon
+Install python dependencies:
+
+```pip install -r requirements.txt```
+
+Run the server locally:
+
+```uvicorn main:app --host 127.0.0.1 --port 8000```
+
+## Dataset
+
+We trained all our models on [this dataset](https://www.kaggle.com/datasets/saurabhshahane/twitter-sentiment-dataset).
+
+## Models
+
+- CatBoost
+- Logistic Regression
+- Random Forest
+
+## Metrics
+
+We used the `balanced_accuracy_score` since the target distribution is not uniform.
+
+The value of `balanced_accuracy_score` is in the range from 0.89 to 0.95 depending on the models.
