@@ -16,6 +16,8 @@ Try it now: [http://188.119.67.145:8000/](http://188.119.67.145:8000/)
 
 Machine learning project for classifying the user's tweets into 3 categories: neutral, negative, and positive.
 
+![image](https://github.com/daniil-vikulov/Hate-Speech-Detection/assets/78466953/b3803483-db0a-4ef0-903c-e796ab3c01ae)
+
 ## Setup
 
 Install python dependencies:
