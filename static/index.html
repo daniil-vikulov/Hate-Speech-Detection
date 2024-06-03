@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hate-Speech-Detection</title>
+    <title>Hate Speech Detection</title>
     <link rel="icon" href="static/hse_icon.ico" type="image/x-icon">
 
     <style>
@@ -17,16 +17,18 @@
             justify-content: center;
             height: 100vh;
             background-color: #f4f4f4;
+            background-image: url("static/elon_musk.png");
+            
         }
         h1 {
             color: #333;
         }
         .container {
             text-align: center;
-            padding: 20px;
+            padding: 50px;
             background-color: #fff;
             border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: 30px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .form-group {
@@ -38,17 +40,28 @@
             width: 100%;
             max-width: 300px;
             margin: 5px 0;
+            border-radius: 5px;
         }
         .result {
             margin-top: 20px;
             font-size: 18px;
             font-weight: bold;
         }
+        button:hover {
+            color:beige;
+            background-color: black;
+            cursor: pointer;
+        }
+
+        button:active {
+            color: black;
+            background-color: beige;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hate-Speech-Detection</h1>
+        <h1>Hate Speech Detection</h1>
         <div class="form-group">
             <input type="text" id="text-input" placeholder="Enter your sentence here...">
         </div>
