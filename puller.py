@@ -1,6 +1,7 @@
-import requests
 import argparse
 import os
+
+import requests
 
 
 def download_file(link, filename):
@@ -29,7 +30,7 @@ def main(model_type):
 
     for mt in model_types:
         link = f"{base_link}model_{mt}"
-        fn = f"model/model_{mt}"
+        fn = f"models/model_{mt}"
         download_file(link, fn)
 
 
