@@ -4,6 +4,9 @@ import os
 
 
 def download_file(link, filename):
+    """
+    Downloads file from the link and saves it at a specific path. Note that existing file with the same name will be overwritten.
+    """
     os.makedirs(os.path.dirname(filename), exist_ok=True)
 
     response = requests.get(link)
