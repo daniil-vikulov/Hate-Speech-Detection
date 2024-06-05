@@ -1,7 +1,8 @@
+import json
 import os
 import re
+
 import chardet
-import json
 
 
 def save(str_list: list):
@@ -26,14 +27,14 @@ def get_comments(filename):
     lines = [line.strip() for line in raw_data.split('\n') if line.strip()]
 
     filters = [
-        r'^\d+[Kk]?$',
+        r'^\d+(\.\d+)?[Kk]?$',
         r'^Reply$',
         r'^\d+\sreplies$',
         r'^\d+\s+reply$',
         r'^@\w+',
         r'^\d+\s+(year|month|week|day|hour|minute)s?\s+ago$',
         r'^\d+\s+reply,\s+\d+\s+(year|month|week|day|hour|minute)s?\s+ago$',
-        r'^\d+\s+(year|month|week|day|hour|minute)s?\s+ago\s+\(edited\)$'
+        r'^\d+\s+(year|month|week|day|hour|minute)s?\s+ago\s+\(edited\)$',
     ]
 
     filter_regex = re.compile('|'.join(filters))
@@ -42,7 +43,8 @@ def get_comments(filename):
 
     for line in lines:
         if not filter_regex.search(line):
-            comments.append(line)
+            if (len(line) > 30):
+                comments.append(line)
 
     return comments
 
@@ -61,4 +63,3 @@ dt = load()
 
 print(len(dt))
 print(len(data))
-
